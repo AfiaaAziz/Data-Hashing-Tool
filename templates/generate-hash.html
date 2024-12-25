@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Hash</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .header {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1rem;
+        }
+        .elevated-box {
+            background-color: #e9ecef;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+        }
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+        input[type="text"], input[type="file"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, select:focus, textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        button {
+            background-color: #ccc;
+            color: black;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #bbb;
+        }
+        .file-input {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleInputFields() {
+            const inputType = document.getElementById('input_type').value;
+            const textInput = document.getElementById('text-input');
+            const fileInput = document.getElementById('file-input');
+
+            if (inputType === 'text') {
+                textInput.style.display = 'block';
+                fileInput.style.display = 'none';
+            } else {
+                textInput.style.display = 'none';
+                fileInput.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="title">DATA HASHING TOOL</div>
+        <nav>
+            <a href="/generate-hash">Generate Hash</a>
+            <a href="/compare-hashes">Compare Hashes</a>
+            <a href="/compare-algorithms">Compare Algorithms</a>
+            <a href="/password-checker">Check Passwords</a>
+            <a href="/salted-hash">Salted Hash</a>
+        </nav>
+    </header>
+    <div class="content-container">
+        <div class="elevated-box">
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="Logo">
+            </div>
+            <h1>Generate Hash</h1>
+            <form method="POST" enctype="multipart/form-data">
+                <label for="input_type">Input Type:</label>
+                <select name="input_type" id="input_type" onchange="toggleInputFields()">
+                    <option value="text">Text</option>
+                    <option value="file">File</option>
+                </select>
+                <div id="text-input">
+                    <label for="text">Input Text:</label>
+                    <textarea name="text" id="text" placeholder="Enter text here"></textarea>
+                </div>
+                <div id="file-input" class="file-input">
+                    <label for="file">Upload File:</label>
+                    <input type="file" name="file" id="file">
+                </div>
+                <label for="algorithm">Algorithm:</label>
+                <select name="algorithm" id="algorithm">
+                    <option value="md5">MD5</option>
+                    <option value="sha1">SHA1</option>
+                    <option value="sha256">SHA256</option>
+                    <option value="sha512">SHA512</option>
+                </select>
+                <button type="submit">Generate</button>
+            </form>
+            {% if hash_result %}
+            <div style="word-wrap: break-word; white-space: pre-wrap; overflow-wrap: break-word; max-width: 100%; margin: 10px auto; text-align: left;">
+                <p>Generated Hash:</p>
+                <strong>{{ hash_result }}</strong>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

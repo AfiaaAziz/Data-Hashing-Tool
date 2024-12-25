@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Hashes</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0; /* Remove default margin */
+        }
+        .header {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin: 0; /* Remove margin to flush with top */
+        }
+        .header .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1rem;
+        }
+        .elevated-box {
+            background-color: #e9ecef; /* Light grey background */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+            position: relative;
+            margin-top: 50px; /* Add some space from the top */
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+        }
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        button {
+            background-color: #ccc; /* Grey color for button */
+            color: black;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #bbb; /* Darker grey on hover */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="title">DATA HASHING TOOL</div>
+        <nav>
+            <a href="/generate-hash">Generate Hash</a>
+            <a href="/compare-hashes">Compare Hashes</a>
+            <a href="/compare-algorithms">Compare Algorithms</a>
+            <a href="/password-checker">Check Passwords</a>
+            <a href="/salted-hash">Salted Hash</a>
+        </nav>
+    </header>
+    <div class="content-container">
+        <div class="elevated-box">
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="Logo">
+            </div>
+            <h1>Compare Hashes</h1>
+            <form method="POST">
+                <label for="hash1">Hash 1:</label>
+                <input type="text" name="hash1" id="hash1" placeholder="Enter first hash" required>
+                <label for="hash2">Hash 2:</label>
+                <input type="text" name="hash2" id="hash2" placeholder="Enter second hash" required>
+                <button type="submit">Compare</button>
+            </form>
+            {% if result %}
+            <p>Comparison Result: <strong>{{ result }}</strong></p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/static/images/welcome-image.png') no-repeat center center/cover;
+            filter: blur(5px); /* Slight blur */
+        }
+        .header {
+            position: relative;
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+        }
+        .header .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .header .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1rem;
+        }
+        .welcome-box {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+            top: 30%; /* Center the box vertically */
+            z-index: 2;
+        }
+        .welcome-box h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .welcome-box p {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="header">
+        <div class="title">DATA HASHING TOOL</div>
+        <div class="nav-links">
+            <a href="/generate-hash">Generate Hash</a>
+            <a href="/compare-hashes">Compare Hashes</a>
+            <a href="/compare-algorithms">Compare Algorithms</a>
+            <a href="/password-checker">Check Passwords</a>
+            <a href="/salted-hash">Salted Hash</a>
+        </div>
+    </div>
+    <div class="welcome-box">
+        <h1>Welcome!</h1>
+        <p>The ultimate solution for secure data hashing and comparison.</p>
+    </div>
+</body>
+</html>
