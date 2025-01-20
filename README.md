@@ -25,7 +25,7 @@ The **Data Hashing Tool** is a cutting-edge web-based application aimed at ensur
 ### **Interactive Navigation**  
 - Ensures a seamless flow between pages and functionalities for intuitive operation.  
 
-<h3>Project Preview Images</h3>
+<h3>Project Preview </h3>
 <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
   <img src="https://github.com/AfiaaAziz/Data-Hashing-Tool/blob/main/Project%20Preview/1.jpg" alt="Image 1" width="30%" />
   <img src="https://github.com/AfiaaAziz/Data-Hashing-Tool/blob/main/Project%20Preview/2.jpg" alt="Image 2" width="30%" />
